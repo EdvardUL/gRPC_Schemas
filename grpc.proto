@@ -1,0 +1,67 @@
+syntax = "proto3";
+
+option go_package = "github.com/EdvardUL/InnoTaxi_order/orderproto";
+
+package grpcTaxi;
+
+service InnoTaxi {
+  rpc RateOrderByUser (Rate) returns (Rate) {}
+  rpc GetAllUserOrders (Email) returns (UserOrders) {}
+  rpc OrderTaxi (RequestTaxi) returns (TaxiResponse) {}
+  rpc RateOrderByDriver (OrderRate) returns (OrderDriverSide) {}
+  rpc GetAllDriverOrders (Email) returns (DriverOrders) {}
+  rpc EndOrder (Email) returns (OrderDriverSide) {}
+}
+
+// The request message containing the rating name.
+message Rate {
+    float rating = 1;
+}
+
+message OrderUserSide {
+    string taxitype = 1;
+	string driver =2;
+	string from =3;
+	string to = 4;
+}
+
+message UserOrders{
+    repeated OrderUserSide order =1;
+}
+message Name {
+    string name = 1;
+}
+
+message RequestTaxi{
+    string taxitype = 1;
+    string from =2;
+	string to = 3;
+}
+
+message TaxiResponse{
+    string taxitype = 1;
+	string driver =2;
+	string from =3;
+	string to = 4;
+    string message = 5;
+}
+
+message OrderRate {
+    float rating = 1;
+    string email = 2;
+}
+  
+message OrderDriverSide {
+    string taxitype = 1;
+    string user =2;
+    string from =3;
+    string to = 4;
+}
+  
+message DriverOrders{
+    repeated OrderDriverSide order =1;
+}
+
+message Email {
+    string email = 1;
+}
