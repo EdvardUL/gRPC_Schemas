@@ -5,17 +5,12 @@ option go_package = "github.com/EdvardUL/InnoTaxi_order/orderproto";
 package grpcTaxi;
 
 service InnoTaxi {
-  rpc RateOrderByUser (Rate) returns (Rate) {}
+  rpc RateOrderByUser (OrderRate) returns (OrderUserSide) {}
   rpc GetAllUserOrders (Email) returns (UserOrders) {}
   rpc OrderTaxi (RequestTaxi) returns (TaxiResponse) {}
   rpc RateOrderByDriver (OrderRate) returns (OrderDriverSide) {}
   rpc GetAllDriverOrders (Email) returns (DriverOrders) {}
   rpc EndOrder (Email) returns (OrderDriverSide) {}
-}
-
-// The request message containing the rating name.
-message Rate {
-    float rating = 1;
 }
 
 message OrderUserSide {
