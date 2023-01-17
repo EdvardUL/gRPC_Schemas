@@ -22,7 +22,7 @@ const _ = grpc.SupportPackageIsVersion7
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type InnoTaxiClient interface {
-	RateOrderByUser(ctx context.Context, in *Rate, opts ...grpc.CallOption) (*Rate, error)
+	RateOrderByUser(ctx context.Context, in *OrderRate, opts ...grpc.CallOption) (*OrderUserSide, error)
 	GetAllUserOrders(ctx context.Context, in *Email, opts ...grpc.CallOption) (*UserOrders, error)
 	OrderTaxi(ctx context.Context, in *RequestTaxi, opts ...grpc.CallOption) (*TaxiResponse, error)
 	RateOrderByDriver(ctx context.Context, in *OrderRate, opts ...grpc.CallOption) (*OrderDriverSide, error)
@@ -38,8 +38,8 @@ func NewInnoTaxiClient(cc grpc.ClientConnInterface) InnoTaxiClient {
 	return &innoTaxiClient{cc}
 }
 
-func (c *innoTaxiClient) RateOrderByUser(ctx context.Context, in *Rate, opts ...grpc.CallOption) (*Rate, error) {
-	out := new(Rate)
+func (c *innoTaxiClient) RateOrderByUser(ctx context.Context, in *OrderRate, opts ...grpc.CallOption) (*OrderUserSide, error) {
+	out := new(OrderUserSide)
 	err := c.cc.Invoke(ctx, "/grpcTaxi.InnoTaxi/RateOrderByUser", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -96,7 +96,7 @@ func (c *innoTaxiClient) EndOrder(ctx context.Context, in *Email, opts ...grpc.C
 // All implementations must embed UnimplementedInnoTaxiServer
 // for forward compatibility
 type InnoTaxiServer interface {
-	RateOrderByUser(context.Context, *Rate) (*Rate, error)
+	RateOrderByUser(context.Context, *OrderRate) (*OrderUserSide, error)
 	GetAllUserOrders(context.Context, *Email) (*UserOrders, error)
 	OrderTaxi(context.Context, *RequestTaxi) (*TaxiResponse, error)
 	RateOrderByDriver(context.Context, *OrderRate) (*OrderDriverSide, error)
@@ -109,7 +109,7 @@ type InnoTaxiServer interface {
 type UnimplementedInnoTaxiServer struct {
 }
 
-func (UnimplementedInnoTaxiServer) RateOrderByUser(context.Context, *Rate) (*Rate, error) {
+func (UnimplementedInnoTaxiServer) RateOrderByUser(context.Context, *OrderRate) (*OrderUserSide, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RateOrderByUser not implemented")
 }
 func (UnimplementedInnoTaxiServer) GetAllUserOrders(context.Context, *Email) (*UserOrders, error) {
@@ -141,7 +141,7 @@ func RegisterInnoTaxiServer(s grpc.ServiceRegistrar, srv InnoTaxiServer) {
 }
 
 func _InnoTaxi_RateOrderByUser_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(Rate)
+	in := new(OrderRate)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -153,7 +153,7 @@ func _InnoTaxi_RateOrderByUser_Handler(srv interface{}, ctx context.Context, dec
 		FullMethod: "/grpcTaxi.InnoTaxi/RateOrderByUser",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(InnoTaxiServer).RateOrderByUser(ctx, req.(*Rate))
+		return srv.(InnoTaxiServer).RateOrderByUser(ctx, req.(*OrderRate))
 	}
 	return interceptor(ctx, in, info, handler)
 }

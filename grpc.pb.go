@@ -20,54 +20,6 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// The request message containing the rating name.
-type Rate struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	Rating float32 `protobuf:"fixed32,1,opt,name=rating,proto3" json:"rating,omitempty"`
-}
-
-func (x *Rate) Reset() {
-	*x = Rate{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_grpc_proto_msgTypes[0]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *Rate) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*Rate) ProtoMessage() {}
-
-func (x *Rate) ProtoReflect() protoreflect.Message {
-	mi := &file_grpc_proto_msgTypes[0]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use Rate.ProtoReflect.Descriptor instead.
-func (*Rate) Descriptor() ([]byte, []int) {
-	return file_grpc_proto_rawDescGZIP(), []int{0}
-}
-
-func (x *Rate) GetRating() float32 {
-	if x != nil {
-		return x.Rating
-	}
-	return 0
-}
-
 type OrderUserSide struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -82,7 +34,7 @@ type OrderUserSide struct {
 func (x *OrderUserSide) Reset() {
 	*x = OrderUserSide{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_grpc_proto_msgTypes[1]
+		mi := &file_grpc_proto_msgTypes[0]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -95,7 +47,7 @@ func (x *OrderUserSide) String() string {
 func (*OrderUserSide) ProtoMessage() {}
 
 func (x *OrderUserSide) ProtoReflect() protoreflect.Message {
-	mi := &file_grpc_proto_msgTypes[1]
+	mi := &file_grpc_proto_msgTypes[0]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -108,7 +60,7 @@ func (x *OrderUserSide) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OrderUserSide.ProtoReflect.Descriptor instead.
 func (*OrderUserSide) Descriptor() ([]byte, []int) {
-	return file_grpc_proto_rawDescGZIP(), []int{1}
+	return file_grpc_proto_rawDescGZIP(), []int{0}
 }
 
 func (x *OrderUserSide) GetTaxitype() string {
@@ -150,7 +102,7 @@ type UserOrders struct {
 func (x *UserOrders) Reset() {
 	*x = UserOrders{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_grpc_proto_msgTypes[2]
+		mi := &file_grpc_proto_msgTypes[1]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -163,7 +115,7 @@ func (x *UserOrders) String() string {
 func (*UserOrders) ProtoMessage() {}
 
 func (x *UserOrders) ProtoReflect() protoreflect.Message {
-	mi := &file_grpc_proto_msgTypes[2]
+	mi := &file_grpc_proto_msgTypes[1]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -176,7 +128,7 @@ func (x *UserOrders) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UserOrders.ProtoReflect.Descriptor instead.
 func (*UserOrders) Descriptor() ([]byte, []int) {
-	return file_grpc_proto_rawDescGZIP(), []int{2}
+	return file_grpc_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *UserOrders) GetOrder() []*OrderUserSide {
@@ -197,7 +149,7 @@ type Name struct {
 func (x *Name) Reset() {
 	*x = Name{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_grpc_proto_msgTypes[3]
+		mi := &file_grpc_proto_msgTypes[2]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -210,7 +162,7 @@ func (x *Name) String() string {
 func (*Name) ProtoMessage() {}
 
 func (x *Name) ProtoReflect() protoreflect.Message {
-	mi := &file_grpc_proto_msgTypes[3]
+	mi := &file_grpc_proto_msgTypes[2]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -223,7 +175,7 @@ func (x *Name) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Name.ProtoReflect.Descriptor instead.
 func (*Name) Descriptor() ([]byte, []int) {
-	return file_grpc_proto_rawDescGZIP(), []int{3}
+	return file_grpc_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *Name) GetName() string {
@@ -246,7 +198,7 @@ type RequestTaxi struct {
 func (x *RequestTaxi) Reset() {
 	*x = RequestTaxi{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_grpc_proto_msgTypes[4]
+		mi := &file_grpc_proto_msgTypes[3]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -259,7 +211,7 @@ func (x *RequestTaxi) String() string {
 func (*RequestTaxi) ProtoMessage() {}
 
 func (x *RequestTaxi) ProtoReflect() protoreflect.Message {
-	mi := &file_grpc_proto_msgTypes[4]
+	mi := &file_grpc_proto_msgTypes[3]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -272,7 +224,7 @@ func (x *RequestTaxi) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RequestTaxi.ProtoReflect.Descriptor instead.
 func (*RequestTaxi) Descriptor() ([]byte, []int) {
-	return file_grpc_proto_rawDescGZIP(), []int{4}
+	return file_grpc_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *RequestTaxi) GetTaxitype() string {
@@ -311,7 +263,7 @@ type TaxiResponse struct {
 func (x *TaxiResponse) Reset() {
 	*x = TaxiResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_grpc_proto_msgTypes[5]
+		mi := &file_grpc_proto_msgTypes[4]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -324,7 +276,7 @@ func (x *TaxiResponse) String() string {
 func (*TaxiResponse) ProtoMessage() {}
 
 func (x *TaxiResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_grpc_proto_msgTypes[5]
+	mi := &file_grpc_proto_msgTypes[4]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -337,7 +289,7 @@ func (x *TaxiResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use TaxiResponse.ProtoReflect.Descriptor instead.
 func (*TaxiResponse) Descriptor() ([]byte, []int) {
-	return file_grpc_proto_rawDescGZIP(), []int{5}
+	return file_grpc_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *TaxiResponse) GetTaxitype() string {
@@ -387,7 +339,7 @@ type OrderRate struct {
 func (x *OrderRate) Reset() {
 	*x = OrderRate{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_grpc_proto_msgTypes[6]
+		mi := &file_grpc_proto_msgTypes[5]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -400,7 +352,7 @@ func (x *OrderRate) String() string {
 func (*OrderRate) ProtoMessage() {}
 
 func (x *OrderRate) ProtoReflect() protoreflect.Message {
-	mi := &file_grpc_proto_msgTypes[6]
+	mi := &file_grpc_proto_msgTypes[5]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -413,7 +365,7 @@ func (x *OrderRate) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OrderRate.ProtoReflect.Descriptor instead.
 func (*OrderRate) Descriptor() ([]byte, []int) {
-	return file_grpc_proto_rawDescGZIP(), []int{6}
+	return file_grpc_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *OrderRate) GetRating() float32 {
@@ -444,7 +396,7 @@ type OrderDriverSide struct {
 func (x *OrderDriverSide) Reset() {
 	*x = OrderDriverSide{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_grpc_proto_msgTypes[7]
+		mi := &file_grpc_proto_msgTypes[6]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -457,7 +409,7 @@ func (x *OrderDriverSide) String() string {
 func (*OrderDriverSide) ProtoMessage() {}
 
 func (x *OrderDriverSide) ProtoReflect() protoreflect.Message {
-	mi := &file_grpc_proto_msgTypes[7]
+	mi := &file_grpc_proto_msgTypes[6]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -470,7 +422,7 @@ func (x *OrderDriverSide) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OrderDriverSide.ProtoReflect.Descriptor instead.
 func (*OrderDriverSide) Descriptor() ([]byte, []int) {
-	return file_grpc_proto_rawDescGZIP(), []int{7}
+	return file_grpc_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *OrderDriverSide) GetTaxitype() string {
@@ -512,7 +464,7 @@ type DriverOrders struct {
 func (x *DriverOrders) Reset() {
 	*x = DriverOrders{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_grpc_proto_msgTypes[8]
+		mi := &file_grpc_proto_msgTypes[7]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -525,7 +477,7 @@ func (x *DriverOrders) String() string {
 func (*DriverOrders) ProtoMessage() {}
 
 func (x *DriverOrders) ProtoReflect() protoreflect.Message {
-	mi := &file_grpc_proto_msgTypes[8]
+	mi := &file_grpc_proto_msgTypes[7]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -538,7 +490,7 @@ func (x *DriverOrders) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DriverOrders.ProtoReflect.Descriptor instead.
 func (*DriverOrders) Descriptor() ([]byte, []int) {
-	return file_grpc_proto_rawDescGZIP(), []int{8}
+	return file_grpc_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *DriverOrders) GetOrder() []*OrderDriverSide {
@@ -559,7 +511,7 @@ type Email struct {
 func (x *Email) Reset() {
 	*x = Email{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_grpc_proto_msgTypes[9]
+		mi := &file_grpc_proto_msgTypes[8]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -572,7 +524,7 @@ func (x *Email) String() string {
 func (*Email) ProtoMessage() {}
 
 func (x *Email) ProtoReflect() protoreflect.Message {
-	mi := &file_grpc_proto_msgTypes[9]
+	mi := &file_grpc_proto_msgTypes[8]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -585,7 +537,7 @@ func (x *Email) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Email.ProtoReflect.Descriptor instead.
 func (*Email) Descriptor() ([]byte, []int) {
-	return file_grpc_proto_rawDescGZIP(), []int{9}
+	return file_grpc_proto_rawDescGZIP(), []int{8}
 }
 
 func (x *Email) GetEmail() string {
@@ -599,9 +551,7 @@ var File_grpc_proto protoreflect.FileDescriptor
 
 var file_grpc_proto_rawDesc = []byte{
 	0x0a, 0x0a, 0x67, 0x72, 0x70, 0x63, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x12, 0x08, 0x67, 0x72,
-	0x70, 0x63, 0x54, 0x61, 0x78, 0x69, 0x22, 0x1e, 0x0a, 0x04, 0x52, 0x61, 0x74, 0x65, 0x12, 0x16,
-	0x0a, 0x06, 0x72, 0x61, 0x74, 0x69, 0x6e, 0x67, 0x18, 0x01, 0x20, 0x01, 0x28, 0x02, 0x52, 0x06,
-	0x72, 0x61, 0x74, 0x69, 0x6e, 0x67, 0x22, 0x67, 0x0a, 0x0d, 0x4f, 0x72, 0x64, 0x65, 0x72, 0x55,
+	0x70, 0x63, 0x54, 0x61, 0x78, 0x69, 0x22, 0x67, 0x0a, 0x0d, 0x4f, 0x72, 0x64, 0x65, 0x72, 0x55,
 	0x73, 0x65, 0x72, 0x53, 0x69, 0x64, 0x65, 0x12, 0x1a, 0x0a, 0x08, 0x74, 0x61, 0x78, 0x69, 0x74,
 	0x79, 0x70, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x08, 0x74, 0x61, 0x78, 0x69, 0x74,
 	0x79, 0x70, 0x65, 0x12, 0x16, 0x0a, 0x06, 0x64, 0x72, 0x69, 0x76, 0x65, 0x72, 0x18, 0x02, 0x20,
@@ -642,35 +592,36 @@ var file_grpc_proto_rawDesc = []byte{
 	0x70, 0x63, 0x54, 0x61, 0x78, 0x69, 0x2e, 0x4f, 0x72, 0x64, 0x65, 0x72, 0x44, 0x72, 0x69, 0x76,
 	0x65, 0x72, 0x53, 0x69, 0x64, 0x65, 0x52, 0x05, 0x6f, 0x72, 0x64, 0x65, 0x72, 0x22, 0x1d, 0x0a,
 	0x05, 0x45, 0x6d, 0x61, 0x69, 0x6c, 0x12, 0x14, 0x0a, 0x05, 0x65, 0x6d, 0x61, 0x69, 0x6c, 0x18,
-	0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x05, 0x65, 0x6d, 0x61, 0x69, 0x6c, 0x32, 0xfc, 0x02, 0x0a,
-	0x08, 0x49, 0x6e, 0x6e, 0x6f, 0x54, 0x61, 0x78, 0x69, 0x12, 0x33, 0x0a, 0x0f, 0x52, 0x61, 0x74,
-	0x65, 0x4f, 0x72, 0x64, 0x65, 0x72, 0x42, 0x79, 0x55, 0x73, 0x65, 0x72, 0x12, 0x0e, 0x2e, 0x67,
-	0x72, 0x70, 0x63, 0x54, 0x61, 0x78, 0x69, 0x2e, 0x52, 0x61, 0x74, 0x65, 0x1a, 0x0e, 0x2e, 0x67,
-	0x72, 0x70, 0x63, 0x54, 0x61, 0x78, 0x69, 0x2e, 0x52, 0x61, 0x74, 0x65, 0x22, 0x00, 0x12, 0x3b,
-	0x0a, 0x10, 0x47, 0x65, 0x74, 0x41, 0x6c, 0x6c, 0x55, 0x73, 0x65, 0x72, 0x4f, 0x72, 0x64, 0x65,
-	0x72, 0x73, 0x12, 0x0f, 0x2e, 0x67, 0x72, 0x70, 0x63, 0x54, 0x61, 0x78, 0x69, 0x2e, 0x45, 0x6d,
-	0x61, 0x69, 0x6c, 0x1a, 0x14, 0x2e, 0x67, 0x72, 0x70, 0x63, 0x54, 0x61, 0x78, 0x69, 0x2e, 0x55,
-	0x73, 0x65, 0x72, 0x4f, 0x72, 0x64, 0x65, 0x72, 0x73, 0x22, 0x00, 0x12, 0x3c, 0x0a, 0x09, 0x4f,
-	0x72, 0x64, 0x65, 0x72, 0x54, 0x61, 0x78, 0x69, 0x12, 0x15, 0x2e, 0x67, 0x72, 0x70, 0x63, 0x54,
-	0x61, 0x78, 0x69, 0x2e, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x54, 0x61, 0x78, 0x69, 0x1a,
-	0x16, 0x2e, 0x67, 0x72, 0x70, 0x63, 0x54, 0x61, 0x78, 0x69, 0x2e, 0x54, 0x61, 0x78, 0x69, 0x52,
-	0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x12, 0x45, 0x0a, 0x11, 0x52, 0x61, 0x74,
-	0x65, 0x4f, 0x72, 0x64, 0x65, 0x72, 0x42, 0x79, 0x44, 0x72, 0x69, 0x76, 0x65, 0x72, 0x12, 0x13,
-	0x2e, 0x67, 0x72, 0x70, 0x63, 0x54, 0x61, 0x78, 0x69, 0x2e, 0x4f, 0x72, 0x64, 0x65, 0x72, 0x52,
-	0x61, 0x74, 0x65, 0x1a, 0x19, 0x2e, 0x67, 0x72, 0x70, 0x63, 0x54, 0x61, 0x78, 0x69, 0x2e, 0x4f,
-	0x72, 0x64, 0x65, 0x72, 0x44, 0x72, 0x69, 0x76, 0x65, 0x72, 0x53, 0x69, 0x64, 0x65, 0x22, 0x00,
-	0x12, 0x3f, 0x0a, 0x12, 0x47, 0x65, 0x74, 0x41, 0x6c, 0x6c, 0x44, 0x72, 0x69, 0x76, 0x65, 0x72,
-	0x4f, 0x72, 0x64, 0x65, 0x72, 0x73, 0x12, 0x0f, 0x2e, 0x67, 0x72, 0x70, 0x63, 0x54, 0x61, 0x78,
-	0x69, 0x2e, 0x45, 0x6d, 0x61, 0x69, 0x6c, 0x1a, 0x16, 0x2e, 0x67, 0x72, 0x70, 0x63, 0x54, 0x61,
-	0x78, 0x69, 0x2e, 0x44, 0x72, 0x69, 0x76, 0x65, 0x72, 0x4f, 0x72, 0x64, 0x65, 0x72, 0x73, 0x22,
-	0x00, 0x12, 0x38, 0x0a, 0x08, 0x45, 0x6e, 0x64, 0x4f, 0x72, 0x64, 0x65, 0x72, 0x12, 0x0f, 0x2e,
-	0x67, 0x72, 0x70, 0x63, 0x54, 0x61, 0x78, 0x69, 0x2e, 0x45, 0x6d, 0x61, 0x69, 0x6c, 0x1a, 0x19,
-	0x2e, 0x67, 0x72, 0x70, 0x63, 0x54, 0x61, 0x78, 0x69, 0x2e, 0x4f, 0x72, 0x64, 0x65, 0x72, 0x44,
-	0x72, 0x69, 0x76, 0x65, 0x72, 0x53, 0x69, 0x64, 0x65, 0x22, 0x00, 0x42, 0x2f, 0x5a, 0x2d, 0x67,
-	0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x45, 0x64, 0x76, 0x61, 0x72, 0x64,
-	0x55, 0x4c, 0x2f, 0x49, 0x6e, 0x6e, 0x6f, 0x54, 0x61, 0x78, 0x69, 0x5f, 0x6f, 0x72, 0x64, 0x65,
-	0x72, 0x2f, 0x6f, 0x72, 0x64, 0x65, 0x72, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62, 0x06, 0x70, 0x72,
-	0x6f, 0x74, 0x6f, 0x33,
+	0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x05, 0x65, 0x6d, 0x61, 0x69, 0x6c, 0x32, 0x8a, 0x03, 0x0a,
+	0x08, 0x49, 0x6e, 0x6e, 0x6f, 0x54, 0x61, 0x78, 0x69, 0x12, 0x41, 0x0a, 0x0f, 0x52, 0x61, 0x74,
+	0x65, 0x4f, 0x72, 0x64, 0x65, 0x72, 0x42, 0x79, 0x55, 0x73, 0x65, 0x72, 0x12, 0x13, 0x2e, 0x67,
+	0x72, 0x70, 0x63, 0x54, 0x61, 0x78, 0x69, 0x2e, 0x4f, 0x72, 0x64, 0x65, 0x72, 0x52, 0x61, 0x74,
+	0x65, 0x1a, 0x17, 0x2e, 0x67, 0x72, 0x70, 0x63, 0x54, 0x61, 0x78, 0x69, 0x2e, 0x4f, 0x72, 0x64,
+	0x65, 0x72, 0x55, 0x73, 0x65, 0x72, 0x53, 0x69, 0x64, 0x65, 0x22, 0x00, 0x12, 0x3b, 0x0a, 0x10,
+	0x47, 0x65, 0x74, 0x41, 0x6c, 0x6c, 0x55, 0x73, 0x65, 0x72, 0x4f, 0x72, 0x64, 0x65, 0x72, 0x73,
+	0x12, 0x0f, 0x2e, 0x67, 0x72, 0x70, 0x63, 0x54, 0x61, 0x78, 0x69, 0x2e, 0x45, 0x6d, 0x61, 0x69,
+	0x6c, 0x1a, 0x14, 0x2e, 0x67, 0x72, 0x70, 0x63, 0x54, 0x61, 0x78, 0x69, 0x2e, 0x55, 0x73, 0x65,
+	0x72, 0x4f, 0x72, 0x64, 0x65, 0x72, 0x73, 0x22, 0x00, 0x12, 0x3c, 0x0a, 0x09, 0x4f, 0x72, 0x64,
+	0x65, 0x72, 0x54, 0x61, 0x78, 0x69, 0x12, 0x15, 0x2e, 0x67, 0x72, 0x70, 0x63, 0x54, 0x61, 0x78,
+	0x69, 0x2e, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x54, 0x61, 0x78, 0x69, 0x1a, 0x16, 0x2e,
+	0x67, 0x72, 0x70, 0x63, 0x54, 0x61, 0x78, 0x69, 0x2e, 0x54, 0x61, 0x78, 0x69, 0x52, 0x65, 0x73,
+	0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x12, 0x45, 0x0a, 0x11, 0x52, 0x61, 0x74, 0x65, 0x4f,
+	0x72, 0x64, 0x65, 0x72, 0x42, 0x79, 0x44, 0x72, 0x69, 0x76, 0x65, 0x72, 0x12, 0x13, 0x2e, 0x67,
+	0x72, 0x70, 0x63, 0x54, 0x61, 0x78, 0x69, 0x2e, 0x4f, 0x72, 0x64, 0x65, 0x72, 0x52, 0x61, 0x74,
+	0x65, 0x1a, 0x19, 0x2e, 0x67, 0x72, 0x70, 0x63, 0x54, 0x61, 0x78, 0x69, 0x2e, 0x4f, 0x72, 0x64,
+	0x65, 0x72, 0x44, 0x72, 0x69, 0x76, 0x65, 0x72, 0x53, 0x69, 0x64, 0x65, 0x22, 0x00, 0x12, 0x3f,
+	0x0a, 0x12, 0x47, 0x65, 0x74, 0x41, 0x6c, 0x6c, 0x44, 0x72, 0x69, 0x76, 0x65, 0x72, 0x4f, 0x72,
+	0x64, 0x65, 0x72, 0x73, 0x12, 0x0f, 0x2e, 0x67, 0x72, 0x70, 0x63, 0x54, 0x61, 0x78, 0x69, 0x2e,
+	0x45, 0x6d, 0x61, 0x69, 0x6c, 0x1a, 0x16, 0x2e, 0x67, 0x72, 0x70, 0x63, 0x54, 0x61, 0x78, 0x69,
+	0x2e, 0x44, 0x72, 0x69, 0x76, 0x65, 0x72, 0x4f, 0x72, 0x64, 0x65, 0x72, 0x73, 0x22, 0x00, 0x12,
+	0x38, 0x0a, 0x08, 0x45, 0x6e, 0x64, 0x4f, 0x72, 0x64, 0x65, 0x72, 0x12, 0x0f, 0x2e, 0x67, 0x72,
+	0x70, 0x63, 0x54, 0x61, 0x78, 0x69, 0x2e, 0x45, 0x6d, 0x61, 0x69, 0x6c, 0x1a, 0x19, 0x2e, 0x67,
+	0x72, 0x70, 0x63, 0x54, 0x61, 0x78, 0x69, 0x2e, 0x4f, 0x72, 0x64, 0x65, 0x72, 0x44, 0x72, 0x69,
+	0x76, 0x65, 0x72, 0x53, 0x69, 0x64, 0x65, 0x22, 0x00, 0x42, 0x2f, 0x5a, 0x2d, 0x67, 0x69, 0x74,
+	0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x45, 0x64, 0x76, 0x61, 0x72, 0x64, 0x55, 0x4c,
+	0x2f, 0x49, 0x6e, 0x6e, 0x6f, 0x54, 0x61, 0x78, 0x69, 0x5f, 0x6f, 0x72, 0x64, 0x65, 0x72, 0x2f,
+	0x6f, 0x72, 0x64, 0x65, 0x72, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74,
+	0x6f, 0x33,
 }
 
 var (
@@ -685,34 +636,33 @@ func file_grpc_proto_rawDescGZIP() []byte {
 	return file_grpc_proto_rawDescData
 }
 
-var file_grpc_proto_msgTypes = make([]protoimpl.MessageInfo, 10)
+var file_grpc_proto_msgTypes = make([]protoimpl.MessageInfo, 9)
 var file_grpc_proto_goTypes = []interface{}{
-	(*Rate)(nil),            // 0: grpcTaxi.Rate
-	(*OrderUserSide)(nil),   // 1: grpcTaxi.OrderUserSide
-	(*UserOrders)(nil),      // 2: grpcTaxi.UserOrders
-	(*Name)(nil),            // 3: grpcTaxi.Name
-	(*RequestTaxi)(nil),     // 4: grpcTaxi.RequestTaxi
-	(*TaxiResponse)(nil),    // 5: grpcTaxi.TaxiResponse
-	(*OrderRate)(nil),       // 6: grpcTaxi.OrderRate
-	(*OrderDriverSide)(nil), // 7: grpcTaxi.OrderDriverSide
-	(*DriverOrders)(nil),    // 8: grpcTaxi.DriverOrders
-	(*Email)(nil),           // 9: grpcTaxi.Email
+	(*OrderUserSide)(nil),   // 0: grpcTaxi.OrderUserSide
+	(*UserOrders)(nil),      // 1: grpcTaxi.UserOrders
+	(*Name)(nil),            // 2: grpcTaxi.Name
+	(*RequestTaxi)(nil),     // 3: grpcTaxi.RequestTaxi
+	(*TaxiResponse)(nil),    // 4: grpcTaxi.TaxiResponse
+	(*OrderRate)(nil),       // 5: grpcTaxi.OrderRate
+	(*OrderDriverSide)(nil), // 6: grpcTaxi.OrderDriverSide
+	(*DriverOrders)(nil),    // 7: grpcTaxi.DriverOrders
+	(*Email)(nil),           // 8: grpcTaxi.Email
 }
 var file_grpc_proto_depIdxs = []int32{
-	1, // 0: grpcTaxi.UserOrders.order:type_name -> grpcTaxi.OrderUserSide
-	7, // 1: grpcTaxi.DriverOrders.order:type_name -> grpcTaxi.OrderDriverSide
-	0, // 2: grpcTaxi.InnoTaxi.RateOrderByUser:input_type -> grpcTaxi.Rate
-	9, // 3: grpcTaxi.InnoTaxi.GetAllUserOrders:input_type -> grpcTaxi.Email
-	4, // 4: grpcTaxi.InnoTaxi.OrderTaxi:input_type -> grpcTaxi.RequestTaxi
-	6, // 5: grpcTaxi.InnoTaxi.RateOrderByDriver:input_type -> grpcTaxi.OrderRate
-	9, // 6: grpcTaxi.InnoTaxi.GetAllDriverOrders:input_type -> grpcTaxi.Email
-	9, // 7: grpcTaxi.InnoTaxi.EndOrder:input_type -> grpcTaxi.Email
-	0, // 8: grpcTaxi.InnoTaxi.RateOrderByUser:output_type -> grpcTaxi.Rate
-	2, // 9: grpcTaxi.InnoTaxi.GetAllUserOrders:output_type -> grpcTaxi.UserOrders
-	5, // 10: grpcTaxi.InnoTaxi.OrderTaxi:output_type -> grpcTaxi.TaxiResponse
-	7, // 11: grpcTaxi.InnoTaxi.RateOrderByDriver:output_type -> grpcTaxi.OrderDriverSide
-	8, // 12: grpcTaxi.InnoTaxi.GetAllDriverOrders:output_type -> grpcTaxi.DriverOrders
-	7, // 13: grpcTaxi.InnoTaxi.EndOrder:output_type -> grpcTaxi.OrderDriverSide
+	0, // 0: grpcTaxi.UserOrders.order:type_name -> grpcTaxi.OrderUserSide
+	6, // 1: grpcTaxi.DriverOrders.order:type_name -> grpcTaxi.OrderDriverSide
+	5, // 2: grpcTaxi.InnoTaxi.RateOrderByUser:input_type -> grpcTaxi.OrderRate
+	8, // 3: grpcTaxi.InnoTaxi.GetAllUserOrders:input_type -> grpcTaxi.Email
+	3, // 4: grpcTaxi.InnoTaxi.OrderTaxi:input_type -> grpcTaxi.RequestTaxi
+	5, // 5: grpcTaxi.InnoTaxi.RateOrderByDriver:input_type -> grpcTaxi.OrderRate
+	8, // 6: grpcTaxi.InnoTaxi.GetAllDriverOrders:input_type -> grpcTaxi.Email
+	8, // 7: grpcTaxi.InnoTaxi.EndOrder:input_type -> grpcTaxi.Email
+	0, // 8: grpcTaxi.InnoTaxi.RateOrderByUser:output_type -> grpcTaxi.OrderUserSide
+	1, // 9: grpcTaxi.InnoTaxi.GetAllUserOrders:output_type -> grpcTaxi.UserOrders
+	4, // 10: grpcTaxi.InnoTaxi.OrderTaxi:output_type -> grpcTaxi.TaxiResponse
+	6, // 11: grpcTaxi.InnoTaxi.RateOrderByDriver:output_type -> grpcTaxi.OrderDriverSide
+	7, // 12: grpcTaxi.InnoTaxi.GetAllDriverOrders:output_type -> grpcTaxi.DriverOrders
+	6, // 13: grpcTaxi.InnoTaxi.EndOrder:output_type -> grpcTaxi.OrderDriverSide
 	8, // [8:14] is the sub-list for method output_type
 	2, // [2:8] is the sub-list for method input_type
 	2, // [2:2] is the sub-list for extension type_name
@@ -727,18 +677,6 @@ func file_grpc_proto_init() {
 	}
 	if !protoimpl.UnsafeEnabled {
 		file_grpc_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*Rate); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_grpc_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*OrderUserSide); i {
 			case 0:
 				return &v.state
@@ -750,7 +688,7 @@ func file_grpc_proto_init() {
 				return nil
 			}
 		}
-		file_grpc_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
+		file_grpc_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*UserOrders); i {
 			case 0:
 				return &v.state
@@ -762,7 +700,7 @@ func file_grpc_proto_init() {
 				return nil
 			}
 		}
-		file_grpc_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
+		file_grpc_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*Name); i {
 			case 0:
 				return &v.state
@@ -774,7 +712,7 @@ func file_grpc_proto_init() {
 				return nil
 			}
 		}
-		file_grpc_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
+		file_grpc_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*RequestTaxi); i {
 			case 0:
 				return &v.state
@@ -786,7 +724,7 @@ func file_grpc_proto_init() {
 				return nil
 			}
 		}
-		file_grpc_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
+		file_grpc_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*TaxiResponse); i {
 			case 0:
 				return &v.state
@@ -798,7 +736,7 @@ func file_grpc_proto_init() {
 				return nil
 			}
 		}
-		file_grpc_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
+		file_grpc_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*OrderRate); i {
 			case 0:
 				return &v.state
@@ -810,7 +748,7 @@ func file_grpc_proto_init() {
 				return nil
 			}
 		}
-		file_grpc_proto_msgTypes[7].Exporter = func(v interface{}, i int) interface{} {
+		file_grpc_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*OrderDriverSide); i {
 			case 0:
 				return &v.state
@@ -822,7 +760,7 @@ func file_grpc_proto_init() {
 				return nil
 			}
 		}
-		file_grpc_proto_msgTypes[8].Exporter = func(v interface{}, i int) interface{} {
+		file_grpc_proto_msgTypes[7].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*DriverOrders); i {
 			case 0:
 				return &v.state
@@ -834,7 +772,7 @@ func file_grpc_proto_init() {
 				return nil
 			}
 		}
-		file_grpc_proto_msgTypes[9].Exporter = func(v interface{}, i int) interface{} {
+		file_grpc_proto_msgTypes[8].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*Email); i {
 			case 0:
 				return &v.state
@@ -853,7 +791,7 @@ func file_grpc_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_grpc_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   10,
+			NumMessages:   9,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
