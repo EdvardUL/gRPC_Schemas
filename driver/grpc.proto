@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+option go_package = "github.com/EdvardUL/gRPC_Schemas/grpcTaxiDriver";
+
+package grpcTaxiDriverSchema;
+
+service InnoTaxiDriver {
+ rpc GetFreeDriver(RequestTaxi) returns (Driver) {}
+}
+ 
+message RequestTaxi {
+    string taxitype = 1;
+}
+
+message Driver{
+    string taxitype = 1;
+	string DriverEmail =2;
+}

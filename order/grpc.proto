@@ -1,10 +1,10 @@
 syntax = "proto3";
 
-option go_package = "github.com/EdvardUL/InnoTaxi_order/orderproto";
+option go_package = "github.com/EdvardUL/gRPC_Schemas/grpcTaxiOrder";
 
-package grpcTaxi;
+package grpcTaxiOrderSchema;
 
-service InnoTaxi {
+service InnoTaxiOrder {
   rpc RateOrderByUser (OrderRate) returns (OrderUserSide) {}
   rpc GetAllUserOrders (Email) returns (UserOrders) {}
   rpc OrderTaxi (RequestTaxi) returns (TaxiResponse) {}
