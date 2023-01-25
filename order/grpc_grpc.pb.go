@@ -2,9 +2,9 @@
 // versions:
 // - protoc-gen-go-grpc v1.2.0
 // - protoc             v3.12.4
-// source: grpc.proto
+// source: order/grpc.proto
 
-package orderproto
+package grpcTaxiOrder
 
 import (
 	context "context"
@@ -18,10 +18,10 @@ import (
 // Requires gRPC-Go v1.32.0 or later.
 const _ = grpc.SupportPackageIsVersion7
 
-// InnoTaxiClient is the client API for InnoTaxi service.
+// InnoTaxiOrderClient is the client API for InnoTaxiOrder service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type InnoTaxiClient interface {
+type InnoTaxiOrderClient interface {
 	RateOrderByUser(ctx context.Context, in *OrderRate, opts ...grpc.CallOption) (*OrderUserSide, error)
 	GetAllUserOrders(ctx context.Context, in *Email, opts ...grpc.CallOption) (*UserOrders, error)
 	OrderTaxi(ctx context.Context, in *RequestTaxi, opts ...grpc.CallOption) (*TaxiResponse, error)
@@ -30,256 +30,256 @@ type InnoTaxiClient interface {
 	EndOrder(ctx context.Context, in *Email, opts ...grpc.CallOption) (*OrderDriverSide, error)
 }
 
-type innoTaxiClient struct {
+type innoTaxiOrderClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewInnoTaxiClient(cc grpc.ClientConnInterface) InnoTaxiClient {
-	return &innoTaxiClient{cc}
+func NewInnoTaxiOrderClient(cc grpc.ClientConnInterface) InnoTaxiOrderClient {
+	return &innoTaxiOrderClient{cc}
 }
 
-func (c *innoTaxiClient) RateOrderByUser(ctx context.Context, in *OrderRate, opts ...grpc.CallOption) (*OrderUserSide, error) {
+func (c *innoTaxiOrderClient) RateOrderByUser(ctx context.Context, in *OrderRate, opts ...grpc.CallOption) (*OrderUserSide, error) {
 	out := new(OrderUserSide)
-	err := c.cc.Invoke(ctx, "/grpcTaxi.InnoTaxi/RateOrderByUser", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/grpcTaxiOrderSchema.InnoTaxiOrder/RateOrderByUser", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *innoTaxiClient) GetAllUserOrders(ctx context.Context, in *Email, opts ...grpc.CallOption) (*UserOrders, error) {
+func (c *innoTaxiOrderClient) GetAllUserOrders(ctx context.Context, in *Email, opts ...grpc.CallOption) (*UserOrders, error) {
 	out := new(UserOrders)
-	err := c.cc.Invoke(ctx, "/grpcTaxi.InnoTaxi/GetAllUserOrders", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/grpcTaxiOrderSchema.InnoTaxiOrder/GetAllUserOrders", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *innoTaxiClient) OrderTaxi(ctx context.Context, in *RequestTaxi, opts ...grpc.CallOption) (*TaxiResponse, error) {
+func (c *innoTaxiOrderClient) OrderTaxi(ctx context.Context, in *RequestTaxi, opts ...grpc.CallOption) (*TaxiResponse, error) {
 	out := new(TaxiResponse)
-	err := c.cc.Invoke(ctx, "/grpcTaxi.InnoTaxi/OrderTaxi", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/grpcTaxiOrderSchema.InnoTaxiOrder/OrderTaxi", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *innoTaxiClient) RateOrderByDriver(ctx context.Context, in *OrderRate, opts ...grpc.CallOption) (*OrderDriverSide, error) {
+func (c *innoTaxiOrderClient) RateOrderByDriver(ctx context.Context, in *OrderRate, opts ...grpc.CallOption) (*OrderDriverSide, error) {
 	out := new(OrderDriverSide)
-	err := c.cc.Invoke(ctx, "/grpcTaxi.InnoTaxi/RateOrderByDriver", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/grpcTaxiOrderSchema.InnoTaxiOrder/RateOrderByDriver", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *innoTaxiClient) GetAllDriverOrders(ctx context.Context, in *Email, opts ...grpc.CallOption) (*DriverOrders, error) {
+func (c *innoTaxiOrderClient) GetAllDriverOrders(ctx context.Context, in *Email, opts ...grpc.CallOption) (*DriverOrders, error) {
 	out := new(DriverOrders)
-	err := c.cc.Invoke(ctx, "/grpcTaxi.InnoTaxi/GetAllDriverOrders", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/grpcTaxiOrderSchema.InnoTaxiOrder/GetAllDriverOrders", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *innoTaxiClient) EndOrder(ctx context.Context, in *Email, opts ...grpc.CallOption) (*OrderDriverSide, error) {
+func (c *innoTaxiOrderClient) EndOrder(ctx context.Context, in *Email, opts ...grpc.CallOption) (*OrderDriverSide, error) {
 	out := new(OrderDriverSide)
-	err := c.cc.Invoke(ctx, "/grpcTaxi.InnoTaxi/EndOrder", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/grpcTaxiOrderSchema.InnoTaxiOrder/EndOrder", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// InnoTaxiServer is the server API for InnoTaxi service.
-// All implementations must embed UnimplementedInnoTaxiServer
+// InnoTaxiOrderServer is the server API for InnoTaxiOrder service.
+// All implementations must embed UnimplementedInnoTaxiOrderServer
 // for forward compatibility
-type InnoTaxiServer interface {
+type InnoTaxiOrderServer interface {
 	RateOrderByUser(context.Context, *OrderRate) (*OrderUserSide, error)
 	GetAllUserOrders(context.Context, *Email) (*UserOrders, error)
 	OrderTaxi(context.Context, *RequestTaxi) (*TaxiResponse, error)
 	RateOrderByDriver(context.Context, *OrderRate) (*OrderDriverSide, error)
 	GetAllDriverOrders(context.Context, *Email) (*DriverOrders, error)
 	EndOrder(context.Context, *Email) (*OrderDriverSide, error)
-	mustEmbedUnimplementedInnoTaxiServer()
+	mustEmbedUnimplementedInnoTaxiOrderServer()
 }
 
-// UnimplementedInnoTaxiServer must be embedded to have forward compatible implementations.
-type UnimplementedInnoTaxiServer struct {
+// UnimplementedInnoTaxiOrderServer must be embedded to have forward compatible implementations.
+type UnimplementedInnoTaxiOrderServer struct {
 }
 
-func (UnimplementedInnoTaxiServer) RateOrderByUser(context.Context, *OrderRate) (*OrderUserSide, error) {
+func (UnimplementedInnoTaxiOrderServer) RateOrderByUser(context.Context, *OrderRate) (*OrderUserSide, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RateOrderByUser not implemented")
 }
-func (UnimplementedInnoTaxiServer) GetAllUserOrders(context.Context, *Email) (*UserOrders, error) {
+func (UnimplementedInnoTaxiOrderServer) GetAllUserOrders(context.Context, *Email) (*UserOrders, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetAllUserOrders not implemented")
 }
-func (UnimplementedInnoTaxiServer) OrderTaxi(context.Context, *RequestTaxi) (*TaxiResponse, error) {
+func (UnimplementedInnoTaxiOrderServer) OrderTaxi(context.Context, *RequestTaxi) (*TaxiResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method OrderTaxi not implemented")
 }
-func (UnimplementedInnoTaxiServer) RateOrderByDriver(context.Context, *OrderRate) (*OrderDriverSide, error) {
+func (UnimplementedInnoTaxiOrderServer) RateOrderByDriver(context.Context, *OrderRate) (*OrderDriverSide, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RateOrderByDriver not implemented")
 }
-func (UnimplementedInnoTaxiServer) GetAllDriverOrders(context.Context, *Email) (*DriverOrders, error) {
+func (UnimplementedInnoTaxiOrderServer) GetAllDriverOrders(context.Context, *Email) (*DriverOrders, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetAllDriverOrders not implemented")
 }
-func (UnimplementedInnoTaxiServer) EndOrder(context.Context, *Email) (*OrderDriverSide, error) {
+func (UnimplementedInnoTaxiOrderServer) EndOrder(context.Context, *Email) (*OrderDriverSide, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method EndOrder not implemented")
 }
-func (UnimplementedInnoTaxiServer) mustEmbedUnimplementedInnoTaxiServer() {}
+func (UnimplementedInnoTaxiOrderServer) mustEmbedUnimplementedInnoTaxiOrderServer() {}
 
-// UnsafeInnoTaxiServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to InnoTaxiServer will
+// UnsafeInnoTaxiOrderServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to InnoTaxiOrderServer will
 // result in compilation errors.
-type UnsafeInnoTaxiServer interface {
-	mustEmbedUnimplementedInnoTaxiServer()
+type UnsafeInnoTaxiOrderServer interface {
+	mustEmbedUnimplementedInnoTaxiOrderServer()
 }
 
-func RegisterInnoTaxiServer(s grpc.ServiceRegistrar, srv InnoTaxiServer) {
-	s.RegisterService(&InnoTaxi_ServiceDesc, srv)
+func RegisterInnoTaxiOrderServer(s grpc.ServiceRegistrar, srv InnoTaxiOrderServer) {
+	s.RegisterService(&InnoTaxiOrder_ServiceDesc, srv)
 }
 
-func _InnoTaxi_RateOrderByUser_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _InnoTaxiOrder_RateOrderByUser_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(OrderRate)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(InnoTaxiServer).RateOrderByUser(ctx, in)
+		return srv.(InnoTaxiOrderServer).RateOrderByUser(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/grpcTaxi.InnoTaxi/RateOrderByUser",
+		FullMethod: "/grpcTaxiOrderSchema.InnoTaxiOrder/RateOrderByUser",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(InnoTaxiServer).RateOrderByUser(ctx, req.(*OrderRate))
+		return srv.(InnoTaxiOrderServer).RateOrderByUser(ctx, req.(*OrderRate))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _InnoTaxi_GetAllUserOrders_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _InnoTaxiOrder_GetAllUserOrders_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(Email)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(InnoTaxiServer).GetAllUserOrders(ctx, in)
+		return srv.(InnoTaxiOrderServer).GetAllUserOrders(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/grpcTaxi.InnoTaxi/GetAllUserOrders",
+		FullMethod: "/grpcTaxiOrderSchema.InnoTaxiOrder/GetAllUserOrders",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(InnoTaxiServer).GetAllUserOrders(ctx, req.(*Email))
+		return srv.(InnoTaxiOrderServer).GetAllUserOrders(ctx, req.(*Email))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _InnoTaxi_OrderTaxi_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _InnoTaxiOrder_OrderTaxi_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(RequestTaxi)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(InnoTaxiServer).OrderTaxi(ctx, in)
+		return srv.(InnoTaxiOrderServer).OrderTaxi(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/grpcTaxi.InnoTaxi/OrderTaxi",
+		FullMethod: "/grpcTaxiOrderSchema.InnoTaxiOrder/OrderTaxi",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(InnoTaxiServer).OrderTaxi(ctx, req.(*RequestTaxi))
+		return srv.(InnoTaxiOrderServer).OrderTaxi(ctx, req.(*RequestTaxi))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _InnoTaxi_RateOrderByDriver_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _InnoTaxiOrder_RateOrderByDriver_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(OrderRate)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(InnoTaxiServer).RateOrderByDriver(ctx, in)
+		return srv.(InnoTaxiOrderServer).RateOrderByDriver(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/grpcTaxi.InnoTaxi/RateOrderByDriver",
+		FullMethod: "/grpcTaxiOrderSchema.InnoTaxiOrder/RateOrderByDriver",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(InnoTaxiServer).RateOrderByDriver(ctx, req.(*OrderRate))
+		return srv.(InnoTaxiOrderServer).RateOrderByDriver(ctx, req.(*OrderRate))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _InnoTaxi_GetAllDriverOrders_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _InnoTaxiOrder_GetAllDriverOrders_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(Email)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(InnoTaxiServer).GetAllDriverOrders(ctx, in)
+		return srv.(InnoTaxiOrderServer).GetAllDriverOrders(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/grpcTaxi.InnoTaxi/GetAllDriverOrders",
+		FullMethod: "/grpcTaxiOrderSchema.InnoTaxiOrder/GetAllDriverOrders",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(InnoTaxiServer).GetAllDriverOrders(ctx, req.(*Email))
+		return srv.(InnoTaxiOrderServer).GetAllDriverOrders(ctx, req.(*Email))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _InnoTaxi_EndOrder_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _InnoTaxiOrder_EndOrder_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(Email)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(InnoTaxiServer).EndOrder(ctx, in)
+		return srv.(InnoTaxiOrderServer).EndOrder(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/grpcTaxi.InnoTaxi/EndOrder",
+		FullMethod: "/grpcTaxiOrderSchema.InnoTaxiOrder/EndOrder",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(InnoTaxiServer).EndOrder(ctx, req.(*Email))
+		return srv.(InnoTaxiOrderServer).EndOrder(ctx, req.(*Email))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// InnoTaxi_ServiceDesc is the grpc.ServiceDesc for InnoTaxi service.
+// InnoTaxiOrder_ServiceDesc is the grpc.ServiceDesc for InnoTaxiOrder service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var InnoTaxi_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "grpcTaxi.InnoTaxi",
-	HandlerType: (*InnoTaxiServer)(nil),
+var InnoTaxiOrder_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "grpcTaxiOrderSchema.InnoTaxiOrder",
+	HandlerType: (*InnoTaxiOrderServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
 			MethodName: "RateOrderByUser",
-			Handler:    _InnoTaxi_RateOrderByUser_Handler,
+			Handler:    _InnoTaxiOrder_RateOrderByUser_Handler,
 		},
 		{
 			MethodName: "GetAllUserOrders",
-			Handler:    _InnoTaxi_GetAllUserOrders_Handler,
+			Handler:    _InnoTaxiOrder_GetAllUserOrders_Handler,
 		},
 		{
 			MethodName: "OrderTaxi",
-			Handler:    _InnoTaxi_OrderTaxi_Handler,
+			Handler:    _InnoTaxiOrder_OrderTaxi_Handler,
 		},
 		{
 			MethodName: "RateOrderByDriver",
-			Handler:    _InnoTaxi_RateOrderByDriver_Handler,
+			Handler:    _InnoTaxiOrder_RateOrderByDriver_Handler,
 		},
 		{
 			MethodName: "GetAllDriverOrders",
-			Handler:    _InnoTaxi_GetAllDriverOrders_Handler,
+			Handler:    _InnoTaxiOrder_GetAllDriverOrders_Handler,
 		},
 		{
 			MethodName: "EndOrder",
-			Handler:    _InnoTaxi_EndOrder_Handler,
+			Handler:    _InnoTaxiOrder_EndOrder_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "grpc.proto",
+	Metadata: "order/grpc.proto",
 }
